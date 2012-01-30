@@ -1,7 +1,7 @@
 <?php	##################
 	#
 	#	rah_file_search-plugin for Textpattern
-	#	version 0.2
+	#	version 0.3
 	#	by Jukka Svahn
 	#	http://rahforum.biz
 	#
@@ -13,7 +13,7 @@
 
 	function rah_file_search($atts, $thing = NULL) {
 		
-		global $pretext, $has_article_tag;
+		global $pretext, $has_article_tag, $thispage;
 		
 		if(empty($pretext['q']))
 			return;
@@ -61,6 +61,8 @@
 		
 		if(!$rs)
 			return;
+		
+		$thispage['grand_total'] = count($rs);
 		
 		$ids = array();
 		

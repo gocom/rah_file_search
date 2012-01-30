@@ -2,8 +2,8 @@ h1. rah_file_search
 
 p. Simple public file search; combines the power of an "article":http://textpattern.net/wiki/index.php?title=article and a "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list. Searches matching results from files' descriptions and filenames, and retunes the results as nicely formatted list.
 
-* Version: 0.2
-* Updated: 2011/02/22 8:00 AM UTC
+* Version: 0.3
+* Updated: 2011/02/23 1:00 PM UTC
 
 h3. Table of Contents
 
@@ -44,13 +44,17 @@ bc. <txp:search_input />
 
 h3(#changelog). Changelog
 
+p. *Version 0.3*
+
+* Added: Now populates "search_result_count":http://textpattern.net/wiki/index.php?title=search_result_count.
+
 p. *Version 0.2*
 
 * Now only causes one extra query; uses @file_download_list()@ instead @file_download()@.
 * Now accepts all the same attributes as "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list tag.
 * Now suppresses _"Page template doesn't contain article tag."_ notice when on search context.
 * Now uses uses same type of matching pattern as Textpattern.
-* From now on equires Textpattern version 4.2.0 or newer.
+* From now on requires Textpattern version 4.2.0 or newer.
 
 p. *Version 0.1*
 
