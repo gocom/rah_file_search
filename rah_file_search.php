@@ -1,15 +1,26 @@
-<?php	##################
-	#
-	#	rah_file_search-plugin for Textpattern
-	#	version 0.7
-	#	by Jukka Svahn
-	#	http://rahforum.biz
-	#
-	###################
+<?php	
 
 /**
-	The tag. Returns the list of matching files.
-*/
+ * Rah_file_search plugin for Textpattern CMS
+ *
+ * @author Jukka Svahn
+ * @date 2008-
+ * @license GNU GPLv2
+ * @link http://rahforum.biz/plugins/rah_file_search
+ *
+ * Requires Textpattern v4.2.0 or newer.
+ *
+ * Copyright (C) 2012 Jukka Svahn <http://rahforum.biz>
+ * Licensed under GNU Genral Public License version 2
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+/**
+ * Returns the list of matching files.
+ * @param array $atts
+ * @param string $thing
+ * @return string
+ */
 
 	function rah_file_search($atts, $thing = NULL) {
 		
