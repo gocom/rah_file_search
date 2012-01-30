@@ -2,36 +2,23 @@ h1. rah_file_search
 
 p. Simple public file search; combines the power of an "article":http://textpattern.net/wiki/index.php?title=article and a "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list. Searches matching results from files' descriptions and filenames, and retunes the results as nicely formatted list.
 
-* Version: 0.7
-* Updated: 2011/03/24 12:20 PM UTC
-
-h3. Table of Contents
-
-* "List of features":#list-of-features
-* "Requirements":#requirements
-* "Installation and usage":#installation-and-usage
-* "Attributes":#attributes
-* "Example":#example
-* "Changelog":#changelog
-
-h3(#list-of-features). List of features
+h2. List of features
 
 * Customize search results with Textpattern file forms and various attributes.
 * A simple tag, @<txp:rah_file_search />@. The tag shows search results.
 * The search works with the standard core search. Core conditionals and forms can work too, including @<txp:if_search />@.
 
-h3(#requirements). Requirements
+h2. Requirements
 
-* PHP 4.3.0+
 * Textpattern 4.2.0 or newer.
 
-h3(#installation-and-usage). Installation and usage
+h2. Installation and usage
 
 p. The general behavior stands: paste the plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and you are ready to use new tags that plugin includes like others.
 
 p. For usage, basically use @<txp:rah_file_search />@ to display the search results. Works kinda identically as @<txp:article />@.
 
-h3(#attributes). Attributes
+h2. Attributes
 
 p. The tag is @<txp:rah_file_search />@ and it has the same attributes as @<txp:file_download_list />@ (and one additional). See "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list for the list of attributes. In addition to, the tag has:
 
@@ -39,38 +26,38 @@ p. *grand_total*
 Omit setting result count. If the attribute is set to @"0"@ (zero), "search_result_count":http://textpattern.net/wiki/index.php?title=search_result_count won't be updated with the number of results. This attribute could be helpful if rah_file_search is used in conjunction with "article":http://textpattern.net/wiki/index.php?title=article tags, as article tags won't update the count once it's already set.
 Default: @grand_total="1"@ Example: @"0"@.
 
-h3(#example). Example
+h2. Example
 
 p. Outputs search form and results (if any).
 
 bc. <txp:search_input />
 <txp:rah_file_search />
 
-h3(#changelog). Changelog
+h2. Changelog
 
-p. *Version 0.7*
+h3. Version 0.7 - 2011/03/24
 
 * Now filters by all words, not any. "Thank you ax":http://forum.textpattern.com/viewtopic.php?pid=244003#p244003.
 
-p. *Version 0.6*
+h3. Version 0.6 - 2011/03/24
 
 * Now searches words individually. "Thank you for notifying Marc":http://forum.textpattern.com/viewtopic.php?pid=243987#p243987.
 * Searches are case-insensitive.
 
-p. *Version 0.5*
+h3. Version 0.5 - 2011/02/23
 
 * Added _title_ to searchable fields in addition to _filename_ and _description_.
 
-p. *Version 0.4*
+h3. Version 0.4 - 2011/02/23
 
 * Added: option to omit updating "search_result_count":http://textpattern.net/wiki/index.php?title=search_result_count. If @grand_total@ attribute is set to @0@, the count wont be set.
 * Changed: defaults "search_result_count":http://textpattern.net/wiki/index.php?title=search_result_count to @0@ (zero).
 
-p. *Version 0.3*
+h3. Version 0.3 - 2011/02/23
 
 * Added: Now populates "search_result_count":http://textpattern.net/wiki/index.php?title=search_result_count.
 
-p. *Version 0.2*
+h3. Version 0.2 - 2011/02/22
 
 * Now only causes one extra query; uses @file_download_list()@ instead @file_download()@.
 * Now accepts all the same attributes as "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list tag.
@@ -78,6 +65,6 @@ p. *Version 0.2*
 * Now uses uses same type of matching pattern as Textpattern.
 * From now on requires Textpattern version 4.2.0 or newer.
 
-p. *Version 0.1*
+h3. Version 0.1 - 2008/11/30
 
 * Initial release.
