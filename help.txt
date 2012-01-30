@@ -1,9 +1,9 @@
 h1. rah_file_search
 
-p. Simple public file search. Default search searhes matching results from files' description and filename fields. When finding matching result, it displays it in the search results file list.
+p. Simple public file search; combines the power of an "article":http://textpattern.net/wiki/index.php?title=article and a "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list. Searches matching results from files' descriptions and filenames, and retunes the results as nicely formatted list.
 
-* Version: 0.1
-* Updated: 2008/11/30 4:30 PM GMT+2
+* Version: 0.2
+* Updated: 2011/02/22 8:00 AM UTC
 
 h3. Table of Contents
 
@@ -12,35 +12,46 @@ h3. Table of Contents
 * "Installation and usage":#installation-and-usage
 * "Attributes":#attributes
 * "Example":#example
+* "Changelog":#changelog
 
 h3(#list-of-features). List of features
 
-* Style search results with Textpattern file forms.
+* Customize search results with Textpattern file forms and various attributes.
 * A simple tag, @<txp:rah_file_search />@. The tag shows search results.
-* The search works with the stannard core @?q@-GET search. Core conditionals and forms can work too, including @<txp:if_search />@.
+* The search works with the standard core search. Core conditionals and forms can work too, including @<txp:if_search />@.
 
 h3(#requirements). Requirements
 
 * PHP 4.3.0+
-* Textpattern 4.0.4+
+* Textpattern 4.2.0 or newer.
 
 h3(#installation-and-usage). Installation and usage
 
-p. The general behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and you are ready to use new tags that plugin includes like others.
+p. The general behavior stands: paste the plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and you are ready to use new tags that plugin includes like others.
 
 p. For usage, basically use @<txp:rah_file_search />@ to display the search results. Works kinda identically as @<txp:article />@.
 
 h3(#attributes). Attributes
 
-p. The tag is @<txp:rah_file_search />@ and attributes for it follow.
-
-p. *form*
-Textpattern's file form used to display search results.
-Example: @form="fileform"@ Default: @"files"@
+p. The tag is @<txp:rah_file_search />@ and it has the exact same attributes as @<txp:file_download_list />@. See "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list for usage instructions.
 
 h3(#example). Example
 
-p. Outputs search results and form.
+p. Outputs search form and results (if any).
 
 bc. <txp:search_input />
 <txp:rah_file_search />
+
+h3(#changelog). Changelog
+
+p. *Version 0.2*
+
+* Now only causes one extra query; uses @file_download_list()@ instead @file_download()@.
+* Now accepts all the same attributes as "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list tag.
+* Now suppresses _"Page template doesn't contain article tag."_ notice when on search context.
+* Now uses uses same type of matching pattern as Textpattern.
+* From now on equires Textpattern version 4.2.0 or newer.
+
+p. *Version 0.1*
+
+* Initial release.
