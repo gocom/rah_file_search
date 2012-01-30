@@ -2,8 +2,8 @@ h1. rah_file_search
 
 p. Simple public file search; combines the power of an "article":http://textpattern.net/wiki/index.php?title=article and a "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list. Searches matching results from files' descriptions and filenames, and retunes the results as nicely formatted list.
 
-* Version: 0.5
-* Updated: 2011/02/23 7:20 PM UTC
+* Version: 0.6
+* Updated: 2011/03/24 3:00 AM UTC
 
 h3. Table of Contents
 
@@ -47,6 +47,11 @@ bc. <txp:search_input />
 <txp:rah_file_search />
 
 h3(#changelog). Changelog
+
+p. *Version 0.6*
+
+* Now searches words individually.
+* Searches are case-insensitive.
 
 p. *Version 0.5*
 

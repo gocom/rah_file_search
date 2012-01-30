@@ -1,7 +1,7 @@
 <?php	##################
 	#
 	#	rah_file_search-plugin for Textpattern
-	#	version 0.5
+	#	version 0.6
 	#	by Jukka Svahn
 	#	http://rahforum.biz
 	#
@@ -41,9 +41,10 @@
 			from quote surrounded string
 		*/
 		
+		$q = trim($q);
 		$quoted = ($q[0] === '"') && ($q[strlen($q)-1] === '"');
 		$q = doSlash($quoted ? trim(trim($q, '"')) : $q);
-		
+
 		/*
 			Clean whitespace and escape the
 			special syntax MySQL's like operator uses
@@ -59,6 +60,36 @@
 			);
 		
 		/*
+			Searchable fields
+		*/
+		
+		$fields =
+			array(
+				'filename',
+				'title',
+				'description'
+			);
+		
+		/*
+			If quoted
+		*/
+		
+		if($quoted)
+			foreach($fields as $field)
+				$sql[] = "lower($field) like lower('%$q%')";
+		else {
+			
+			/*
+				Go thru the words
+			*/
+			
+			$words = explode(' ', $q);
+			foreach($fields as $field)
+				foreach($words as $word)
+					$sql[] = "lower($field) like lower('%$word%')";
+		}
+		
+		/*
 			Get matching IDs
 		*/
 		
@@ -66,7 +97,7 @@
 			safe_rows(
 				'id',
 				'txp_file',
-				"(filename like '%$q%' or title like '%$q%' or description like '%$q%') and status=4"
+				'('.implode(' or ',$sql).') and status=4'
 			);
 		
 		if(!$rs)
