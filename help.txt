@@ -1,0 +1,46 @@
+h1. rah_file_search
+
+p. Simple public file search. Default search searhes matching results from files' description and filename fields. When finding matching result, it displays it in the search results file list.
+
+* Version: 0.1
+* Updated: 2008/11/30 4:30 PM GMT+2
+
+h3. Table of Contents
+
+* "List of features":#list-of-features
+* "Requirements":#requirements
+* "Installation and usage":#installation-and-usage
+* "Attributes":#attributes
+* "Example":#example
+
+h3(#list-of-features). List of features
+
+* Style search results with Textpattern file forms.
+* A simple tag, @<txp:rah_file_search />@. The tag shows search results.
+* The search works with the stannard core @?q@-GET search. Core conditionals and forms can work too, including @<txp:if_search />@.
+
+h3(#requirements). Requirements
+
+* PHP 4.3.0+
+* Textpattern 4.0.4+
+
+h3(#installation-and-usage). Installation and usage
+
+p. The general behavior stands: paste plugin code to the plugin installer textarea and run the automatic setup. Then just activate the plugin and you are ready to use new tags that plugin includes like others.
+
+p. For usage, basically use @<txp:rah_file_search />@ to display the search results. Works kinda identically as @<txp:article />@.
+
+h3(#attributes). Attributes
+
+p. The tag is @<txp:rah_file_search />@ and attributes for it follow.
+
+p. *form*
+Textpattern's file form used to display search results.
+Example: @form="fileform"@ Default: @"files"@
+
+h3(#example). Example
+
+p. Outputs search results and form.
+
+bc. <txp:search_input />
+<txp:rah_file_search />
