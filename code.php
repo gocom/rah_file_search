@@ -1,7 +1,7 @@
 <?php	##################
 	#
 	#	rah_file_search-plugin for Textpattern
-	#	version 0.3
+	#	version 0.4
 	#	by Jukka Svahn
 	#	http://rahforum.biz
 	#
@@ -14,6 +14,16 @@
 	function rah_file_search($atts, $thing = NULL) {
 		
 		global $pretext, $has_article_tag, $thispage;
+		
+		/*
+			Allow turn grand_total counting off
+			by setting "grand_total" attribute to 0
+		*/
+		
+		$grand_total = isset($atts['grand_total']) ? $atts['grand_total'] : 1;
+		
+		if($grand_total == 1)
+			$thispage['grand_total'] = 0;
 		
 		if(empty($pretext['q']))
 			return;
@@ -62,7 +72,8 @@
 		if(!$rs)
 			return;
 		
-		$thispage['grand_total'] = count($rs);
+		if($grand_total == 1)
+			$thispage['grand_total'] = count($rs);
 		
 		$ids = array();
 		
@@ -74,6 +85,10 @@
 		*/
 		
 		$atts['id'] = implode(',',$ids);
+		
+		unset(
+			$atts['grand_total']
+		);
 		
 		return
 			file_download_list($atts, $thing);

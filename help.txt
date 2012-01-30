@@ -2,8 +2,8 @@ h1. rah_file_search
 
 p. Simple public file search; combines the power of an "article":http://textpattern.net/wiki/index.php?title=article and a "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list. Searches matching results from files' descriptions and filenames, and retunes the results as nicely formatted list.
 
-* Version: 0.3
-* Updated: 2011/02/23 1:00 PM UTC
+* Version: 0.4
+* Updated: 2011/02/23 5:00 PM UTC
 
 h3. Table of Contents
 
@@ -33,7 +33,11 @@ p. For usage, basically use @<txp:rah_file_search />@ to display the search resu
 
 h3(#attributes). Attributes
 
-p. The tag is @<txp:rah_file_search />@ and it has the exact same attributes as @<txp:file_download_list />@. See "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list for usage instructions.
+p. The tag is @<txp:rah_file_search />@ and it has the same attributes as @<txp:file_download_list />@ (and one additional). See "file_download_list":http://textpattern.net/wiki/index.php?title=file_download_list for the list of attributes. In addition to, the tag has:
+
+p. *grand_total*
+Omit setting result count. If the attribute is set to @"0"@ (zero), "search_result_count":http://textpattern.net/wiki/index.php?title=search_result_count won't be updated with the number of results. This attribute could be helpful if rah_file_search is used in conjunction with "article":http://textpattern.net/wiki/index.php?title=article tags, as article tags won't update the count once it's already set.
+Default: @grand_total="1"@ Example: @"0"@.
 
 h3(#example). Example
 
@@ -43,6 +47,11 @@ bc. <txp:search_input />
 <txp:rah_file_search />
 
 h3(#changelog). Changelog
+
+p. *Version 0.4*
+
+* Added: option to omit updating "search_result_count":http://textpattern.net/wiki/index.php?title=search_result_count. If @grand_total@ attribute is set to @0@, the count wont be set.
+* Changed: defaults "search_result_count":http://textpattern.net/wiki/index.php?title=search_result_count to @0@ (zero).
 
 p. *Version 0.3*
 
