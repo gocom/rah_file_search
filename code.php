@@ -1,7 +1,7 @@
 <?php	##################
 	#
 	#	rah_file_search-plugin for Textpattern
-	#	version 0.4
+	#	version 0.5
 	#	by Jukka Svahn
 	#	http://rahforum.biz
 	#
@@ -66,7 +66,7 @@
 			safe_rows(
 				'id',
 				'txp_file',
-				"(filename like '%$q%' or description like '%$q%') and status=4"
+				"(filename like '%$q%' or title like '%$q%' or description like '%$q%') and status=4"
 			);
 		
 		if(!$rs)
