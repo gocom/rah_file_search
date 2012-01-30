@@ -1,7 +1,7 @@
 <?php	##################
 	#
 	#	rah_file_search-plugin for Textpattern
-	#	version 0.6
+	#	version 0.7
 	#	by Jukka Svahn
 	#	http://rahforum.biz
 	#
@@ -84,9 +84,12 @@
 			*/
 			
 			$words = explode(' ', $q);
-			foreach($fields as $field)
-				foreach($words as $word)
-					$sql[] = "lower($field) like lower('%$word%')";
+			foreach($words as $word) {
+				$fsql = array();
+				foreach($fields as $field)
+					$fsql[] = "lower($field) like lower('%$word%')";
+				$sql[] = '('.implode(' or ',$fsql).')';
+			}
 		}
 		
 		/*
@@ -97,7 +100,7 @@
 			safe_rows(
 				'id',
 				'txp_file',
-				'('.implode(' or ',$sql).') and status=4'
+				'('.implode(($quoted ? ' or ' : ' and '),$sql).') and status=4'
 			);
 		
 		if(!$rs)
