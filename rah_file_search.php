@@ -68,7 +68,7 @@
 			safe_column(
 				'id',
 				'txp_file',
-				'('.implode(($quoted ? ' or ' : ' and '), $sql).') and status=4'
+				'('.implode($quoted ? ' or ' : ' and ', $sql).') and status=4'
 			);
 		
 		if(!$rs)
