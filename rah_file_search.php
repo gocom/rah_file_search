@@ -21,11 +21,13 @@
 		
 		$grand_total = isset($atts['grand_total']) ? $atts['grand_total'] : 1;
 		
-		if($grand_total == 1)
+		if($grand_total == 1) {
 			$thispage['grand_total'] = 0;
+		}
 		
-		if(empty($pretext['q']))
+		if(empty($pretext['q'])) {
 			return;
+		}
 
 		$has_article_tag = true;
 		$q = $pretext['q'];
@@ -50,16 +52,20 @@
 			);
 		
 		if($quoted) {
-			foreach($fields as $field)
+			foreach($fields as $field) {
 				$sql[] = "lower($field) like lower('%$q%')";
+			}
 		}
 		else {
 			$words = explode(' ', $q);
 
 			foreach($words as $word) {
 				$fsql = array();
-				foreach($fields as $field)
+				
+				foreach($fields as $field) {
 					$fsql[] = "lower($field) like lower('%$word%')";
+				}
+				
 				$sql[] = '('.implode(' or ', $fsql).')';
 			}
 		}
@@ -71,15 +77,16 @@
 				'('.implode($quoted ? ' or ' : ' and ', $sql).') and status=4'
 			);
 		
-		if(!$rs)
+		if(!$rs) {
 			return;
+		}
 		
-		if($grand_total == 1)
+		if($grand_total == 1) {
 			$thispage['grand_total'] = count($rs);
+		}
 		
 		$atts['id'] = implode(',', $rs);
 		unset($atts['grand_total']);
-		
 		return file_download_list($atts, $thing);
 	}
 ?>
